@@ -24,27 +24,78 @@ const Index = () => {
   const meetings = [
     {
       day: 'Понедельник',
-      time: '19:00',
+      time: '19:30',
       type: 'Открытое собрание',
+      location: 'ул. Большая Садовая, 105/42, каб. 201'
+    },
+    {
+      day: 'Вторник', 
+      time: '19:30',
+      type: 'Изучение литературы',
       location: 'ул. Большая Садовая, 105/42, каб. 201'
     },
     {
       day: 'Среда', 
-      time: '18:30',
+      time: '19:30',
       type: 'Закрытое собрание',
       location: 'пр. Буденновский, 15, 3 этаж'
     },
     {
+      day: 'Четверг',
+      time: '19:30', 
+      type: 'Шаги и традиции',
+      location: 'ул. Красноармейская, 170, 2 этаж'
+    },
+    {
       day: 'Пятница',
       time: '19:30', 
-      type: 'Шаг за шагом',
+      type: 'Открытое собрание',
       location: 'ул. Большая Садовая, 105/42, каб. 201'
     },
     {
+      day: 'Суббота',
+      time: '19:30',
+      type: 'Личный опыт',
+      location: 'пр. Буденновский, 15, 3 этаж'
+    },
+    {
       day: 'Воскресенье',
-      time: '11:00',
+      time: '19:30',
       type: 'Открытое собрание',
       location: 'ул. Красноармейская, 170, 2 этаж'
+    }
+  ];
+
+  const steps = [
+    { number: 1, text: 'Мы признали, что мы бессильны перед алкоголем — что наша жизнь стала неуправляемой.' },
+    { number: 2, text: 'Пришли к убеждению, что Сила, более могущественная, чем мы, может вернуть нам здравомыслие.' },
+    { number: 3, text: 'Приняли решение препоручить нашу волю и наши жизни заботе Бога, как мы Его понимали.' },
+    { number: 4, text: 'Провели бесстрашную и основательную нравственную инвентаризацию самих себя.' },
+    { number: 5, text: 'Признали перед Богом, собой и другим человеком точную природу наших заблуждений.' },
+    { number: 6, text: 'Полностью подготовили себя к тому, чтобы Бог избавил нас от всех этих дефектов характера.' },
+    { number: 7, text: 'Смиренно просили Его избавить нас от наших недостатков.' },
+    { number: 8, text: 'Составили список всех людей, которым мы причинили зло, и преисполнились желанием возместить им всем ущерб.' },
+    { number: 9, text: 'Лично возмещали причиненный этим людям ущерб, где только возможно, кроме тех случаев, когда это могло повредить им или другим.' },
+    { number: 10, text: 'Продолжали проводить личную инвентаризацию, и когда мы были неправы, сразу признавали это.' },
+    { number: 11, text: 'Стремились путем молитвы и размышления улучшить наш сознательный контакт с Богом, как мы Его понимали, молясь лишь о знании Его воли, которую нам надлежит исполнить, и о даровании силы для этого.' },
+    { number: 12, text: 'Достигнув духовного пробуждения в результате выполнения этих шагов, мы старались донести смысл наших идей до других алкоголиков и применять эти принципы во всех наших делах.' }
+  ];
+
+  const meditations = [
+    {
+      title: 'Утренняя медитация',
+      description: 'Начни день с момента благодарности',
+      text: 'Сегодня я выбираю трезвость. Благодарю за новый день и возможность расти.'
+    },
+    {
+      title: 'Принятие',
+      description: 'Молитва о принятии ситуаций',
+      text: 'Боже, дай мне разум и душевный покой принять то, что я не в силах изменить, мужество изменить то, что могу, и мудрость отличить одно от другого.'
+    },
+    {
+      title: 'Вечернее размышление',
+      description: 'Подведение итогов дня',
+      text: 'Что прошло хорошо сегодня? За что я благодарен? Что могу улучшить завтра?'
     }
   ];
 
@@ -118,7 +169,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Card className="bg-sage-light/30 border-sage hover:shadow-lg transition-shadow animate-scale-in">
               <CardHeader className="text-center">
                 <Icon name="Users" size={48} className="mx-auto text-forest mb-4" />
@@ -155,6 +206,30 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
+
+          {/* 12 Шагов */}
+          <div className="bg-cream-light/50 rounded-xl p-8">
+            <h3 className="text-3xl font-montserrat font-bold text-forest mb-8 text-center">12 Шагов программы АА</h3>
+            <p className="text-gray-700 text-center mb-8 max-w-4xl mx-auto">
+              Программа "12 шагов" — это духовный путь выздоровления, основанный на принципах честности, 
+              надежды, веры, мужества, правдивости, готовности, смирения, любви, справедливости, 
+              настойчивости, осознанности и служения.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {steps.map((step, index) => (
+                <Card key={index} className="bg-white border-sage hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start">
+                      <div className="bg-forest text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                        {step.number}
+                      </div>
+                      <p className="text-gray-700 leading-relaxed">{step.text}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -168,20 +243,29 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-forest text-white rounded-xl p-6 mb-8">
+            <div className="text-center">
+              <Icon name="Clock" size={32} className="mx-auto mb-4" />
+              <h3 className="text-2xl font-montserrat font-bold mb-2">Ежедневные встречи</h3>
+              <p className="text-xl opacity-90">Каждый день в 19:30</p>
+              <p className="text-sm opacity-75 mt-2">7 дней в неделю, 365 дней в году</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {meetings.map((meeting, index) => (
               <Card key={index} className="bg-white border-sage hover:shadow-lg transition-shadow animate-fade-in">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <Icon name="Calendar" className="text-forest mr-3" size={24} />
-                    <h3 className="text-xl font-montserrat font-semibold text-forest">
+                    <Icon name="Calendar" className="text-forest mr-3" size={20} />
+                    <h3 className="text-lg font-montserrat font-semibold text-forest">
                       {meeting.day}
                     </h3>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-center">
                       <Icon name="Clock" className="text-gray-600 mr-2" size={16} />
-                      <span className="text-gray-700">{meeting.time}</span>
+                      <span className="text-gray-700 font-semibold">{meeting.time}</span>
                     </div>
                     <div className="flex items-center">
                       <Icon name="Tag" className="text-gray-600 mr-2" size={16} />
@@ -189,7 +273,7 @@ const Index = () => {
                     </div>
                     <div className="flex items-start">
                       <Icon name="MapPin" className="text-gray-600 mr-2 mt-1" size={16} />
-                      <span className="text-gray-700">{meeting.location}</span>
+                      <span className="text-gray-700 text-sm">{meeting.location}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -199,36 +283,70 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Полезная литература */}
+      {/* Полезная литература и медитации */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-montserrat font-bold text-forest mb-6">Полезная литература</h2>
+            <h2 className="text-4xl font-montserrat font-bold text-forest mb-6">Литература и медитации</h2>
             <p className="text-lg text-gray-700">
-              Рекомендованные материалы для изучения программы и личностного роста
+              Духовные материалы для ежедневного использования и размышлений
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {literature.map((book, index) => (
-              <Card key={index} className="bg-cream-light/50 border-warge hover:shadow-lg transition-shadow animate-fade-in">
-                <CardHeader>
-                  <div className="flex items-center">
-                    <Icon name="BookOpen" className="text-forest mr-3" size={24} />
-                    <CardTitle className="text-forest font-montserrat">{book.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 mb-4">{book.description}</p>
-                  <Button 
-                    variant="outline" 
-                    className="border-forest text-forest hover:bg-forest hover:text-white"
-                  >
-                    Читать онлайн
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Литература */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-montserrat font-bold text-forest mb-8 text-center">Рекомендованная литература</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {literature.map((book, index) => (
+                <Card key={index} className="bg-cream-light/50 border-warge hover:shadow-lg transition-shadow animate-fade-in">
+                  <CardHeader>
+                    <div className="flex items-center">
+                      <Icon name="BookOpen" className="text-forest mr-3" size={24} />
+                      <CardTitle className="text-forest font-montserrat">{book.title}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700 mb-4">{book.description}</p>
+                    <Button 
+                      variant="outline" 
+                      className="border-forest text-forest hover:bg-forest hover:text-white"
+                    >
+                      Читать онлайн
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Медитации */}
+          <div className="bg-sage-light/20 rounded-xl p-8">
+            <h3 className="text-2xl font-montserrat font-bold text-forest mb-8 text-center">Ежедневные медитации</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {meditations.map((meditation, index) => (
+                <Card key={index} className="bg-white border-forest-light hover:shadow-lg transition-shadow">
+                  <CardHeader className="text-center">
+                    <Icon name="Flower" size={32} className="mx-auto text-forest mb-2" />
+                    <CardTitle className="text-forest font-montserrat text-lg">{meditation.title}</CardTitle>
+                    <p className="text-gray-600 text-sm">{meditation.description}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <blockquote className="text-gray-700 italic text-center leading-relaxed border-l-4 border-forest pl-4">
+                      "{meditation.text}"
+                    </blockquote>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <p className="text-gray-700 mb-4">
+                💡 <strong>Совет:</strong> Используйте эти медитации утром для настроя на день 
+                или вечером для подведения итогов.
+              </p>
+              <Button className="bg-forest hover:bg-forest-dark text-white">
+                Скачать приложение с медитациями
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -310,7 +428,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-montserrat font-bold text-forest mb-6">Часто задаваемые вопросы</h2>
             <p className="text-lg text-gray-700">
-              Ответы на самые важные вопросы о программе АА
+              Практические советы и ответы на важные вопросы о программе АА
             </p>
           </div>
 
@@ -354,6 +472,69 @@ const Index = () => {
               <AccordionContent className="text-gray-700">
                 Да, конечно. Единственное требование для членства в АА — это желание перестать пить. 
                 Неважно, сколько раз вы срывались или как долго пьете. Мы рады всем, кто готов попробовать.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="bg-white border-sage rounded-lg px-6">
+              <AccordionTrigger className="text-forest font-montserrat font-semibold">
+                Как справляться с желанием выпить?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700">
+                <ul className="space-y-2 list-disc list-inside">
+                  <li>Немедленно свяжитесь со спонсором или участником группы</li>
+                  <li>Вспомните молитву о принятии</li>
+                  <li>Сосредоточьтесь на текущем дне: "Только сегодня"</li>
+                  <li>Посетите внеочередную встречу группы</li>
+                  <li>Займитесь физической активностью</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="bg-white border-sage rounded-lg px-6">
+              <AccordionTrigger className="text-forest font-montserrat font-semibold">
+                Что делать, если я сорвался?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700">
+                Срыв не означает провал. Важно:
+                <ul className="space-y-2 list-disc list-inside mt-2">
+                  <li>Не вините себя — алкоголизм это болезнь</li>
+                  <li>Как можно скорее вернитесь на встречи</li>
+                  <li>Поделитесь опытом с группой</li>
+                  <li>Пересмотрите свою программу со спонсором</li>
+                  <li>Начните отсчет дней трезвости заново</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7" className="bg-white border-sage rounded-lg px-6">
+              <AccordionTrigger className="text-forest font-montserrat font-semibold">
+                Как найти спонсора?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700">
+                Спонсор — это опытный участник АА, который помогает в работе по программе:
+                <ul className="space-y-2 list-disc list-inside mt-2">
+                  <li>Слушайте выступления на встречах</li>
+                  <li>Выберите человека с качествами, которые хотите развить</li>
+                  <li>Подойдите после встречи и попросите о спонсорстве</li>
+                  <li>Временное спонсорство поможет начать</li>
+                  <li>Будьте открыты и честны со спонсором</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8" className="bg-white border-sage rounded-lg px-6">
+              <AccordionTrigger className="text-forest font-montserrat font-semibold">
+                Работают ли методы АА при других зависимостях?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700">
+                Принципы программы "12 шагов" адаптированы для различных зависимостей:
+                <ul className="space-y-2 list-disc list-inside mt-2">
+                  <li>Наркотики (АН — Анонимные Наркоманы)</li>
+                  <li>Азартные игры (Анонимные Игроки)</li>
+                  <li>Переедание (Анонимные Обжоры)</li>
+                  <li>Созависимость (Ал-Анон для семей)</li>
+                  <li>Другие компульсивные поведения</li>
+                </ul>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
